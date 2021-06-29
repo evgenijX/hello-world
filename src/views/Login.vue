@@ -94,11 +94,17 @@ export default {
       }
       const formData = {
         email: this.email,
-        password: this.password,
-      };
-      await this.$store.dispatch('login', formData)
-      this.$router.push("/");
-    },
-  },
-};
+        password: this.password
+      }
+
+      // eslint-disable-next-line no-useless-catch
+      try {
+        await this.$store.dispatch('login', formData)
+        this.$router.push("/")
+      } catch (e) {
+       throw e
+      }
+    }
+  }
+}
 </script>

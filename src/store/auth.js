@@ -7,7 +7,7 @@ export default {
       try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
       } catch (e) {
-
+        throw e
       }
     }
   }
