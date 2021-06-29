@@ -83,7 +83,7 @@ export default {
   },
   mounted() {
     if (messages[this.$route.query.message]) {
-      this.$message(messages[this.$route.query.message])
+      this.$message(messages[this.$route.query.message]);
     }
   },
   methods: {
@@ -94,17 +94,16 @@ export default {
       }
       const formData = {
         email: this.email,
-        password: this.password
-      }
-
+        password: this.password,
+      };
       // eslint-disable-next-line no-useless-catch
       try {
-        await this.$store.dispatch('login', formData)
-        this.$router.push("/")
+        await this.$store.dispatch("login", formData);
+        this.$router.push("/");
       } catch (e) {
-       throw e
+        throw e;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>

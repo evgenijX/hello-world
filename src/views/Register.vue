@@ -17,12 +17,12 @@
         <small
           class="helper-text invalid"
           v-if="$v.email.$dirty && !$v.email.required"
-        >Поле email не должно быть пустым</small
+          >Поле email не должно быть пустым</small
         >
         <small
           class="helper-text invalid"
           v-else-if="$v.email.$dirty && !$v.email.email"
-        >Введите коректный email</small
+          >Введите коректный email</small
         >
       </div>
       <div class="input-field">
@@ -40,12 +40,12 @@
         <small
           class="helper-text invalid"
           v-if="$v.password.$dirty && !$v.password.required"
-        >Введите пароль</small
+          >Введите пароль</small
         >
         <small
           class="helper-text invalid"
           v-else-if="$v.password.$dirty && !$v.password.minLength"
-        >Пароль должен содержать более
+          >Пароль должен содержать более
           {{ $v.password.$params.minLength.min }} знаков. Сейчас он
           {{ password.length }}</small
         >
@@ -55,17 +55,18 @@
           id="name"
           type="text"
           v-model.trim="name"
-          :class="{invalid: $v.name.$dirty && !$v.name.required }"
+          :class="{ invalid: $v.name.$dirty && !$v.name.required }"
         />
         <label for="name">Имя</label>
         <small
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
-        >Введите ваше имя</small>
+          >Введите ваше имя</small
+        >
       </div>
       <p>
         <label>
-          <input type="checkbox" v-model="agree"/>
+          <input type="checkbox" v-model="agree" />
           <span>С правилами согласен</span>
         </label>
       </p>
@@ -95,30 +96,32 @@ export default {
     email: "",
     password: "",
     name: "",
-    agree: false
+    agree: false,
   }),
   validations: {
     email: { email, required },
     password: { required, minLength: minLength(6) },
-    name: {required},
-    agree: {checked: v => v}
+    name: { required },
+    agree: { checked: (v) => v },
   },
   methods: {
     async submitHendler() {
       if (this.$v.$invalid) {
-        this.$v.$touch()
-        return
+        this.$v.$touch();
+        return;
       }
       const formData = {
         email: this.email,
         password: this.password,
-        name: this.name
-      }
+        name: this.name,
+      };
       try {
-        await this.$store.dispatch('register', formData)
-        this.$router.push('/')
-      } catch (e) {}
-    }
-  }
-}
+        await this.$store.dispatch("register", formData);
+        this.$router.push("/");
+      } catch (e) {
+        e;
+      }
+    },
+  },
+};
 </script>

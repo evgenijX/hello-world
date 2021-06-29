@@ -1,10 +1,12 @@
 export default {
-  install(Vue, option) {
-    Vue.prototype.$message = function(html) {
-      M.toast({html})
-    }
-    Vue.prototype.$error = function(html) {
-      M.toast({html: `[Ошибка]: ${html}`})
-    }
-  }
-}
+  install(Vue) {
+    Vue.prototype.$message = function (html) {
+      // eslint-disable-next-line no-undef
+      M.toast({ html });
+    };
+    Vue.prototype.$error = function (html) {
+      // eslint-disable-next-line no-undef
+      M.toast({ html: `[Ошибка]: ${html}` });
+    };
+  },
+};
