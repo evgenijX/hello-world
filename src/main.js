@@ -4,6 +4,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import dateFilter from "@/filters/date.filter";
+import currencyFilter from "@/filters/currency.filter";
 import messagePlugin from "@/utils/message.plugin";
 import Loader from "@/components/app/Loader"
 import "./registerServiceWorker";
@@ -13,11 +14,13 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
 
+
 Vue.config.productionTip = false;
 
 Vue.use(messagePlugin);
 Vue.use(Vuelidate);
 Vue.filter("date", dateFilter);
+Vue.filter("currency", currencyFilter);
 Vue.component('Loader', Loader)
 
 firebase.initializeApp({
