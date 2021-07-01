@@ -58,6 +58,7 @@ export default {
     limit: { minValue: minValue(100) },
   },
   mounted() {
+    // eslint-disable-next-line no-undef
     M.updateTextFields();
   },
   methods: {
@@ -71,13 +72,13 @@ export default {
           title: this.title,
           limit: this.limit,
         });
-        this.title = ''
-        this.limit = 100
-        this.$v.$reset()
-        this.$message('Категория создана')
-        this.$emit('created', category)
+        this.title = "";
+        this.limit = 100;
+        this.$v.$reset();
+        this.$message("Категория создана");
+        this.$emit("created", category);
+        // eslint-disable-next-line no-empty
       } catch (e) {}
-
     },
   },
 };
