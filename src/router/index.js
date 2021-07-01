@@ -26,10 +26,16 @@ const routes = [
     component: () => import("../views/Categories.vue"),
   },
   {
+    path: "/detail/:id",
+    name: "detail",
+    meta: { layout: "main", auth: true },
+    component: () => import("../views/Detail.vue"),
+  },
+  {
     path: "/detail-record",
     name: "detail-record",
     meta: { layout: "main", auth: true },
-    component: () => import("../views/Detail-record.vue"),
+    component: () => import("../views/Detail.vue"),
   },
   {
     path: "/history",
