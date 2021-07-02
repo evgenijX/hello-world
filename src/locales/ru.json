@@ -1,0 +1,23 @@
+{
+  "ProfileTitle": "Профиль",
+  "CategoryTitle": "Категории",
+  "Name": "Имя",
+  "Update": "Обновить",
+  "Menu_Bill": "Счет",
+  "Menu_History": "История",
+  "Menu_Planning": "Планирование",
+  "Menu_NewRecord": "Новая запись",
+  "Menu_Category": "Категории",
+  "Logout": "Выйти",
+  "Create": "Создать",
+  "Limit": "Лимит",
+  "Edit": "Редактировать",
+  "Choose category": "Выберите категорию",
+  "EnterName": "Введите название категории",
+  "EnterDescription": "Введите описание",
+  "MinValue": "Минимальноe значение",
+  "Income": "Доход",
+  "Outcome": "Расход",
+  "Amount": "Сумма",
+  "Description": "Описание"
+}

@@ -2,7 +2,7 @@
   <div class="col s12 m6">
     <div>
       <div class="page-subtitle">
-        <h4>Редактировать</h4>
+        <h4>{{ "Edit" | localize }}</h4>
       </div>
 
       <form @submit.prevent="submitHandler">
@@ -12,7 +12,7 @@
               {{ c.title }}
             </option>
           </select>
-          <label>Выберите категорию</label>
+          <label>{{ "Choose category" | localize }}</label>
         </div>
 
         <div class="input-field">
@@ -22,12 +22,12 @@
             v-model="title"
             :class="{ invalid: $v.title.$dirty && !$v.title.required }"
           />
-          <label for="name">Название</label>
+          <label for="name">{{ "Name" | localize }}</label>
           <span
             v-if="$v.title.$dirty && !$v.title.required"
             class="helper-text invalid"
           >
-            Введите название категории</span
+            {{ "EnterName" | localize }}</span
           >
         </div>
 
@@ -38,16 +38,16 @@
             v-model.number="limit"
             :class="{ invalid: $v.limit.$dirty && !$v.limit.minValue }"
           />
-          <label for="limit">Лимит</label>
+          <label for="limit">{{ "Limit" | localize }}</label>
           <span
             v-if="$v.limit.$dirty && !$v.limit.minValue"
             class="helper-text invalid"
-            >Минимальная значение {{ $v.limit.$params.minValue.min }}
+            >{{ "MinValue" | localize }} {{ $v.limit.$params.minValue.min }}
           </span>
         </div>
 
         <button class="btn waves-effect waves-light" type="submit">
-          Обновить
+          {{ "Update" | localize }}
           <i class="material-icons right">send</i>
         </button>
       </form>
@@ -90,23 +90,26 @@ export default {
   methods: {
     async submitHandler() {
       if (this.$v.$invalid) {
-        this.$v.$stouch()
-        return
+        this.$v.$touch();
+        return;
       }
       try {
         const categoryData = {
           id: this.current,
           title: this.title,
-          limit: this.limit
-        }
-        await this.$store.dispatch('updateCategory', categoryData)
-        this.$message('Категория успешно обновлена')
-        this.$emit('updated', categoryData)
-      }catch (e) {}
-    }
+          limit: this.limit,
+        };
+        await this.$store.dispatch("updateCategory", categoryData);
+        this.$message("Категория успешно обновлена");
+        this.$emit("updated", categoryData);
+        // eslint-disable-next-line no-empty
+      } catch (e) {}
+    },
   },
   mounted() {
+    // eslint-disable-next-line no-undef
     M.updateTextFields();
+    // eslint-disable-next-line no-undef
     this.select = M.FormSelect.init(this.$refs.select);
   },
   destroyed() {

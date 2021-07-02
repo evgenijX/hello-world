@@ -1,0 +1,23 @@
+{
+  "ProfileTitle": "Profile",
+  "CategoryTitle": "Category",
+  "Name": "Name",
+  "Update": "Update",
+  "Menu_Bill": "Bill",
+  "Menu_History": "History",
+  "Menu_Planning": "Planning",
+  "Menu_NewRecord": "New Record",
+  "Menu_Category": "Category",
+  "Logout": "Logout",
+  "Create": "Create",
+  "Limit": "Limit",
+  "Edit": "Edit",
+  "Choose category": "Choose category",
+  "EnterName": "Enter name category",
+  "EnterDescription": "Enter description",
+  "MinValue": "Min value",
+  "Income": "Income",
+  "Outcome": "Outcome",
+  "Amount": "Amount",
+  "Description": "Description"
+}
